@@ -24,23 +24,15 @@ class App extends React.Component {
             onlyLiked: false,
             searchText: ""
         }
-
-        this.onDelete = this.onDelete.bind(this);
-        this.addItem = this.addItem.bind(this);
-        this.onToggleImportant = this.onToggleImportant.bind(this);
-        this.onToggleLiked = this.onToggleLiked.bind(this);
-        this.onSetAll = this.onSetAll.bind(this);
-        this.onSetOnlyLiked = this.onSetOnlyLiked.bind(this);
-        this.onSearch = this.onSearch.bind(this);
     }
 
-    onDelete(id) {
+    onDelete = (id) => {
         this.setState(({ data }) => {
             return { data: data.filter(d => d.id !== id) };
         });
-    }
+    };
 
-    addItem(text) {
+    addItem = (text) => {
         const newItem = {
             id: this.currentId++,
             label: text,
@@ -55,7 +47,7 @@ class App extends React.Component {
         });
     }
 
-    onToggleImportant(id) {
+    onToggleImportant = (id) => {
         this.setState(({ data }) => {
             const mutableItemIndex = data.findIndex(d => d.id === id);
             const { important, ...otherProps } = data[mutableItemIndex];
@@ -70,7 +62,7 @@ class App extends React.Component {
         });
     }
 
-    onToggleLiked(id) {
+    onToggleLiked = (id) => {
         this.setState(({ data }) => {
             const likedItemIndex = data.findIndex(d => d.id === id);
             const { liked, ...otherProps } = data[likedItemIndex];
@@ -86,7 +78,7 @@ class App extends React.Component {
         });
     }
 
-    getVisiblePosts() {
+    getVisiblePosts = () => {
         let visiblePosts = this.state.onlyLiked ? this.state.data.filter(post => post.liked) :
             this.state.data;
         if (this.state.searchText) {
@@ -97,15 +89,15 @@ class App extends React.Component {
         return visiblePosts;
     }
 
-    onSetAll() {
+    onSetAll = () => {
         this.setState({ onlyLiked: false });
     }
 
-    onSetOnlyLiked() {
+    onSetOnlyLiked = () => {
         this.setState({ onlyLiked: true });
     }
 
-    onSearch(searchText) {
+    onSearch = (searchText) => {
         this.setState({ searchText });
     }
 

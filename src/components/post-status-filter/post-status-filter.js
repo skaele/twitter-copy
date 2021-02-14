@@ -8,16 +8,14 @@ class PostStatusFilter extends React.Component {
         this.state = {
             onlyLiked: props.onlyLiked
         };
-        this.onSetAll = this.onSetAll.bind(this);
-        this.onSetOnlyLiked = this.onSetOnlyLiked.bind(this);
     }
 
-    onSetAll(callBack) {
+    onSetAll = (callBack) => {
         this.setState({ onlyLiked: false });
         callBack();
     }
 
-    onSetOnlyLiked(callBack) {
+    onSetOnlyLiked = (callBack) => {
         this.setState({ onlyLiked: true });
         callBack();
     }

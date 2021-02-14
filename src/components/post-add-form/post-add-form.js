@@ -8,15 +8,13 @@ class PostAddForm extends React.Component {
         this.state = {
             outputText: ""
         };
-        this.onInputTextChanged = this.onInputTextChanged.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
     }
 
-    onInputTextChanged(event) {
+    onInputTextChanged = (event) => {
         this.setState({ outputText: event.target.value });
     }
 
-    onSubmit(event) {
+    onSubmit = (event) => {
         event.preventDefault();
         this.props.onAdd(this.state.outputText);
         this.setState({ outputText: "" });

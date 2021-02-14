@@ -3,22 +3,21 @@ import React from 'react';
 import './post-list-item.css';
 
 class PostListItem extends React.Component {
+    
     constructor(props) {
         super(props);
         this.state = {
             important: props.important,
             like: props.liked
         };
-        this.onImportant = this.onImportant.bind(this);
-        this.onLike = this.onLike.bind(this);
     }
-
-    onImportant(callBack) {
+    
+    onImportant = (callBack) => {
         this.setState(({ important }) => ({ important: !important }));
         callBack();
     }
 
-    onLike(callBack) {
+    onLike = (callBack) => {
         this.setState(({ like }) => ({ like: !like }));
         callBack();
     }

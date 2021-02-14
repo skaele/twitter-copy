@@ -10,7 +10,7 @@ const SearchPanel = ({ onSearch }) => {
             placeholder="Поиск по записям"
             onChange={(e) => onSearch(e.target.value)}
         />
-    )
+    );
 };
 
 export default SearchPanel;

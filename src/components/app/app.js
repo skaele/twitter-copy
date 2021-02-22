@@ -8,6 +8,7 @@ import PostStatusFilter from '../post-status-filter/post-status-filter';
 import PostList from '../post-list/post-list';
 import PostAddForm from '../post-add-form/post-add-form';
 
+// Some changes just for test
 class App extends React.Component {
 
     constructor(props) {
